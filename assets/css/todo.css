@@ -1,0 +1,191 @@
+/* Adjusting the outer container */
+.container{
+    margin: .4em;
+    padding:.4em;
+    width:60vw;
+    position: absolute;
+    right: 15%;;
+}
+.content{
+    background-color: rgb(154, 194, 231);
+    border-radius: 25px;
+    padding:.7em;
+    height:35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.container h1{
+    text-align: center;
+}
+
+/* Adjusting the form cotainer and it's input field */
+.form-container{
+    display: flex;
+    flex-direction: row;
+    height:25vh;
+}
+.description{
+    width:48%;
+    padding:.7em;
+    background-color: rgb(209, 229, 248);
+    border-radius: 15px;
+}
+#desc-input{
+    width: 95%;
+    height:80%;
+    border:2px;
+    border-radius:10px;
+    padding-top:.8em;
+    padding-left:.8em;
+}
+
+/* Adjusting right hand side container for form category and due date  */
+.right-container{
+    width: 48%;
+    padding:.7em;
+    background-color: rgb(209, 229, 248);
+    border-radius: 15px;
+    margin-left: .3em;
+}
+.category-container{
+    height: 50%;
+}
+#category{
+    width:90%;
+    height:30px;
+    border:2px;
+    border-radius:50px;
+    text-align: center;
+}
+#date-input{
+    width:90%;
+    height:30px;
+    border:2px;
+    border-radius:50px;
+    text-align: center;
+    padding-right:.8em;
+}
+.button-div{
+    display: flex;
+    justify-content: center;
+}
+ #add-task-btn{
+    padding:10px;
+    margin-right:1em;
+    border-radius:8px;
+    background-color: rgb(130, 236, 148);
+    border:1px  rgb(247, 152, 152);
+    width:125px;
+ }
+
+ /* Middle cotainer css and adjustments */
+.mid-container{
+    background-color: rgb(217, 182, 238);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding:.9em;
+    margin:.5em 0;
+}
+.time-container,.due-today,.completed-tasks,.due-all-task{
+    width:23%;
+    height:100px; 
+    background-color: rgb(232, 206, 247);
+    border-radius: 10px;
+    padding: .1em;
+}
+.time-container,.due-today,.completed-tasks,.due-all-task{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.count-container h1, .count-container h3{
+    margin:0px;
+    padding:0px;
+}
+.count-container h1{
+    font-size: 45px;
+}
+
+/* CSS for task list container */
+.list-container{
+    background-color: rgb(214, 141, 202);
+    border-radius: 25px;
+    padding:1em;
+    min-height: 120px;
+}
+.task-container{
+    background-color: rgb(212, 173, 207);
+    border-radius: 15px;
+    padding:.05em .8em;
+    margin:.3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
+}
+.task-content {
+display: flex;
+flex-direction: row;
+}
+.task-desc{
+    padding-left: .8em;
+}
+#description-text, #due-date-container{
+    padding: .1em;
+    margin: 0px;
+}
+#description-text{
+    font-weight: 900;
+    font-size: larger;
+}
+
+#due-date-container{
+    font-weight: 400;
+    font-size: small;
+}
+.category{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#delete-task-btn{
+    font-size: 25px;
+}
+
+.task-content i{
+    font-size:25px;
+    text-align: center;
+    padding-top:.1em;
+}
+#category-dimension{
+    width:75px;
+    padding:.4em;
+    border-radius: 10px;
+    /* background-color: aqua; */
+    text-align: center;
+    margin: 0em .7em;
+    color:white
+    
+}
+
+/* Adjusting the buttons and category div and design */
+.Work{
+    background-color: brown;
+}
+.Personal{
+    background-color: tomato;
+}
+.Cleaning{
+    background-color: burlywood;
+}
+.School{
+    background-color: darkcyan;
+}
+.Other{
+    background-color: rgb(59, 30, 165);
+}

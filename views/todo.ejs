@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/todo.css" />
+</head>
+
+<body>
+    <div class="container">
+        <!--Heading of the app-->
+        <h1>TODO App</h1>
+        <!--Form section to collect/ take user task details-->
+        <form class="content" action="/todo/create-todo" method="POST" >
+            <div class="form-container">
+                <!--Form description field-->
+                <div class="description">
+                    <label for="description">DESCRIPTION</label><br />
+                    <textarea type="text" name="description" id="desc-input"
+                        placeholder="What do you need to do?" required></textarea>
+                </div>
+                <div class="right-container">
+                    <!--Form category field-->
+                    <div class="category-container">
+                        <label for="Category">CATEGORY</label><br />
+                        <select name="category" id="category">
+                            <option value="School">School</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Work">Work</option>
+                            <option value="Cleaning">Cleaning</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <!--Form due field-->
+                    <div class="due-date">
+                        <label for="dueDate">DUE DATE</label><br />
+                        <input type="date" name="dueDate" placeholder="dd/mm/yyyy" id="date-input">
+                    </div>
+
+                </div>
+            </div>
+            <br />
+            <!--Add task button-->
+            <div class="button-div">
+                <button id="add-task-btn" type="submit">ADD TASK</button>
+            </div>
+            
+        </form>
+        <!--Middle section that displays today's date, due tasks and completed tasks-->
+        <div class="mid-container">
+            <!--Displays today's date and month-->
+            <div class="time-container">
+                <div class="count-container">
+                    <h1 id="date-txt"></h1>
+                    <h3 id="month-txt"></h3>
+                </div>
+            </div>
+            <!--Displays count of tasks due for today's day-->
+            <div class="due-today">
+                <div class="count-container">
+                    <h1 id="due-today-count"><%=todayDue%></h1>
+                    <h3 id="due-today">Due Today</h3>
+                </div>
+            </div>
+            <!--Displays count of tasks completed-->
+            <div class="completed-tasks">
+                <div class="count-container">
+                    <h1 id="completed-task-count"><%=completedTask%></h1>
+                    <h3 id="completed-task">Completed Tasks</h3>
+                </div>
+            </div>
+            <!--Displays count of all tasks due -->
+            <div class="due-all-task">
+                <div class="count-container">
+                    <h1 id="overall-due"><%=allDue%></h1>
+                    <h3 id="all-dues">Overall Due</h3>
+                </div>
+            </div>
+        </div>
+        <!--Displays all the tasks list-->
+        <div class="list-container">
+            <% for (var i=0; i <tasks.length; i++ ) { %>
+                <div class="task-container">
+                    <div class="task-content">
+                        <!--Checks the condition of task completion and accordingly rendering the icon-->
+                        <%if(tasks[i].completed){%>
+                        <i class='bx bx-task' style='color:#52eb4a'  ></i>
+                        <%}else{%>
+                        <i class='bx bx-task-x' style='color:#eb4a4a'  ></i>
+                            <%}%>
+                            <!--Displays description and due date of the task-->
+                            <div class="task-desc">
+                                <p id="description-text"><%= tasks[i].description %></p> 
+                                <!--If task doesn't have due date then "No due date" is displayed-->
+                                <%if(tasks[i].dueDate.length==0){%>
+                                <p id="due-date-container">
+                                    NO DUE DATE
+                                    </p>
+                                    <%}else{%>
+                           <p id="due-date-container">
+                            <%= tasks[i].dueDate%></p>
+                            <%}%>
+                            </div>
+
+                    </div>
+                    <!--Displays complete action button, category of the task and delete action for the task-->
+                    <div class="category">  
+                        <%if(!tasks[i].completed){%>
+                            <i class='bx bxs-badge-check' id="mark-complete" style='color:#eeed93; font-size:25px;' data-id="<%= tasks[i].id%>" ></i>
+                        <%}%>
+                           <p id="category-dimension" class="<%= tasks[i].category%>"><em> <%= tasks[i].category%></em></p>
+                           <div class="delete-btn">
+                            <i class='bx bxs-trash' style='color:#fc0052'  id="delete-task-btn" data-id="<%= tasks[i].id%>"></i>
+                        </div>
+                    </div>
+                   
+                </div>
+                <%}%>
+        </div>
+    </div>
+<script src="/js/timerScript.js"></script>
+</body>
+
+</html>
